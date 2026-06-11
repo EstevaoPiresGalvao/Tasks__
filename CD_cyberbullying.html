@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Combate ao Cyberbullying</title>
+<style>
+
+
+body{
+    font-family: Arial, sans-serif;
+    text-align:center;
+    margin-top:50px;
+}
+textarea{
+    width:300px;
+    height:100px;
+}
+button{
+    padding:10px 20px;
+    margin-top:10px;
+}
+#alerta{
+    display:none;
+    background:#fff3cd;
+    border:1px solid #ffc107;
+    padding:20px;
+    margin:20px auto;
+    width:350px;
+}
+</style>
+</head>
+
+
+<body>
+
+<h1>🛡️ Pense Antes de Publicar</h1>
+
+<textarea id="comentario"
+placeholder="Digite seu comentário..."></textarea>
+<br>
+<button onclick="verificar()">Publicar</button>
+
+<div id="alerta">
+    <h3>⚠️ Atenção!</h3>
+    <p>Detectamos uma possível linguagem ofensiva.</p>
+    <p>Repense seus atos, você gostaria de receber essa mensagem? Então por que outro deveria ouvir isso?</p>
+    <button onclick="editar()">Editar mensagem</button>
+</div>
+
+<script>
+function verificar() {
+    let texto = document
+        .getElementById("comentario")
+        .value
+        .toLowerCase();
+
+    let palavras = [
+        "idiota",
+        "burro",
+        "inútil",
+        "otário",
+        "fdp",
+        "bobo",
+        "besta",
+        "mongol",
+        "degenerado",
+        "filho da puta",
+        "vadia",
+        "vagabunda",
+        "desgraçado",
+        "merda",
+        "viado",
+        "boiola",
+        "puta",
+        "puto",
+        "vagabundo",
+        "viadinho",
+        "demônio",
+        "cuzão",
+        "sapatão",
+        "gay",
+        "gayzinho",
+        "cu",
+        "buceta",
+        "arrombado",
+        "miserável"
+    ];
+
+    let encontrou = palavras.some(
+        palavra => texto.includes(palavra)
+    );
+
+    if(encontrou){
+        document.getElementById("alerta")
+        .style.display = "block";
+    } else {
+        alert("Comentário publicado com sucesso!");
+    }
+}
+
+function editar(){
+    document.getElementById("alerta")
+    .style.display = "none";
+}
+</script>
+
+</body>
+</html>
